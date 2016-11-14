@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add a User</title>
+    </head>
+    <body>
+        <h1>Add a User</h1>
+
+        <% if @errors %>
+	       <% @errors.each do |error| %>
+	          <p><%= error %></p>
+	        <% end %>
+        <% end %>
+
+        <!-- <form action="/create" method="post">
+	        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"><br><br>
+            <label><u>First Name:</u></label><input type="text" name="first_name"><br><br>
+            <label><u>Last Name:</u></label><input type="text" name="last_name"><br><br>
+            <label><u>Email:</u></label><input type="text" name="email"><br><br>
+            <label><u>Password:</u></label><input type="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+        </form> -->
+
+        <!-- Alternative Form Start -->
+
+        <form action="/create" method="post">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"><br><br>
+            <label><u>First Name:</u></label><input type="text" name="user[first_name]"><br><br>
+            <label><u>Last Name:</u></label><input type="text" name="user[last_name]"><br><br>
+            <label><u>Email:</u></label><input type="text" name="user[email]"><br><br>
+            <label><u>Password:</u></label><input type="password" name="user[password]"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Alt End -->
+
+        <br>
+        <a href="/"><button>Back</button></a>
+    </body>
+</html>
